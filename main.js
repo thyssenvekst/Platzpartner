@@ -33,7 +33,7 @@
       var f=form.elements;
       var subject='Anfrage Platzpartner: '+(f.typ.value||'Allgemein')+(f.org.value?' / '+f.org.value:'');
       var body='Name: '+f.name.value+'\n'+(f.typ.value==='Verein'?'Verein: ':'Betrieb: ')+f.org.value+'\nStadtteil: '+f.ort.value+'\n\n'+f.text.value;
-      window.location.href='mailto:mail@johnthyssen.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+      window.location.href='mailto:info@platzpartner.de?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
     });
   }
 })();
