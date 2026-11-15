@@ -94,10 +94,12 @@ html.js .draw.in path,html.js .draw.in line,html.js .draw.in rect.ln{stroke-dash
 .doors{display:grid;grid-template-columns:1fr 1fr}
 .door{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:48px;min-height:clamp(320px,34vw,440px);padding:clamp(32px,4.5vw,64px);text-decoration:none;overflow:hidden}
 .door.dark{background:var(--ink);color:#f3f2ed}
-.door.clay{background:var(--court);color:#fff}
+/* Kontrast: Weiß auf #b5532c = 4,95:1 (WCAG AA). Auf #c8643b wären es nur 3,9:1. */
+.door.clay{background:var(--clay);color:#fff}
 .door .kicker{color:inherit;opacity:.75}
 .door h2{font-size:clamp(32px,3.6vw,52px);max-width:11em;margin-top:14px}
 .door p{max-width:28em;font-size:18px;opacity:.88}
+.door.clay .kicker,.door.clay p{opacity:1}
 .door .go{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid currentColor;padding-top:20px;font-weight:700}
 .door .go svg{width:28px;height:28px;transition:transform .3s var(--ease)}
 .door .bg{position:absolute;right:-40px;top:-30px;width:300px;opacity:.12;pointer-events:none}
@@ -133,21 +135,15 @@ html.js .draw.in path,html.js .draw.in line,html.js .draw.in rect.ln{stroke-dash
 .year .ph small{display:block;font-weight:500;font-size:13px;opacity:.8;margin-top:3px}
 .ph1{grid-column:1 / span 2;background:var(--paper-2);border:1px solid var(--line)}
 .ph2{grid-column:3 / span 3;background:var(--ink);color:#fff}
-.ph3{grid-column:6 / span 1;background:var(--court);color:#fff}
+.ph3{grid-column:6 / span 1;background:var(--clay);color:#fff}
+.year .ph3 small{opacity:1}
 .ph4{grid-column:7 / span 5;background:#e4e2da}
 .ph5{grid-column:12 / span 1;background:var(--clay-dark);color:#fff}
 html.js .year .ph{transform:scaleX(0);transition:transform .9s var(--ease);transition-delay:var(--d,0s)}
 html.js .year.in .ph{transform:none}
 @media (prefers-reduced-motion:reduce){html.js .year .ph{transform:none;transition:none}}
-.year .when{display:none}
-@media (max-width:820px){
-  .yearbox{overflow:visible;margin:0;padding:0}
-  .year{min-width:0;grid-template-columns:1fr;row-gap:8px}
-  .year .m{display:none}
-  .year .ph{grid-column:1 / -1;padding:18px 20px;font-size:18px;transform-origin:left center}
-  .year .ph small{font-size:15px;margin-top:4px}
-  .year .when{display:block;font-size:13px;font-weight:700;letter-spacing:.02em;opacity:.75;margin-bottom:6px}
-}
+.scroll-hint{display:none;font-size:13px;color:var(--ink-2);margin-top:10px}
+@media (max-width:820px){.scroll-hint{display:block}}
 
 /* Datenblatt */
 .sheet{width:100%;border-collapse:collapse;font-size:17px}
